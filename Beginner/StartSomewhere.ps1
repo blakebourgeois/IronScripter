@@ -1,0 +1,2 @@
+﻿## Iron Scripter Challenge https://ironscripter.us/powershell-beginners-have-to-start-somewhere/
+$files = gci -Recurse; $filecount = ($files | Measure-Object).count; $size = 0; foreach($file in $files){$size += $file.length}; $size = $size/1MB; $avg = [math]::Round($size/$filecount,2); $date = get-date -f "yyyy-MM-dd"; write-host "There are $filecount files in the path, totaling $size MB with an average of $avg MB per file. This command was run on" $env:COMPUTERNAME "on $date"
